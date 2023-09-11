@@ -10,12 +10,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import generics.ExcelLibrary;
 import generics.Helper;
+import generics.Screenshot1;
 
 public class ActitimeLoginPage extends BasePage implements Autoconstant
 {
 public WebDriver driver;
 	
-	@FindBy(id = "usernam")
+	@FindBy(id = "username")
 	private WebElement usernameTextfield;
 	
 	@FindBy(name="pwd")
@@ -39,6 +40,7 @@ public WebDriver driver;
 		//javascriptenter(driver, usernameTextfield, "arguments[0].value='admin'");
 		Helper.highlightelement(driver, usernameTextfield);
 		usernameTextfield.sendKeys(ExcelLibrary.getCellvalue(sheet_name, 1, 0));
+		Screenshot1.takeElementScreenshot(usernameTextfield, "username");
 		
 		webdriverwaitvisibilityof(driver, passwordTextfield);
 		Helper.highlightelement(driver, passwordTextfield);
